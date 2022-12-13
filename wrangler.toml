@@ -1,0 +1,8 @@
+name = "react-stream-esr"
+main = 'src/worker/server.js'
+compatibility_date = "2022-12-12"
+workers_dev = true
+
+[env.production]
+
+
