@@ -24,6 +24,5 @@ Use `yarn dev` command to run the server on local.
 
 ### How to deploy?
 
-You can leverage the following commands in order:
-* wrangler generate `app-name` https://github.com/abhirajambasta/react-esr
-* wrangler publish
+You can leverage the following commands in order to publish on the edge:
+* yarn publishToEdge

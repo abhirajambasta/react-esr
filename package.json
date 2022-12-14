@@ -4,8 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "rimraf public && mkdir public && cp ./src/main.css ./public && wrangler dev --experimental-public public",
-    "publish": "NODE_ENV=production wrangler publish --experimental-public public --env production --minify"
+    "copyAssets": "copyfiles --all ./presentation/**/* public && copyfiles --all ./presentation/**/**/* public && copyfiles --all ./presentation/**/**/**/* public && copyfiles --all ./presentation/**/**/**/**/* public && cp ./src/main.css ./public",
+    "dev": "rimraf public && mkdir public && yarn copyAssets && wrangler dev --experimental-public public",
+    "publishToEdge": "NODE_ENV=production wrangler publish --experimental-public public --env production --minify"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "wrangler": "2.0.7"
   },
   "devDependencies": {
+    "copyfiles": "^2.4.1",
     "rimraf": "^3.0.2"
   }
 }

@@ -6,7 +6,5 @@ workers_dev = true
 [site]
 bucket = "./public"
 
-[env.production]
-
 [build]
 command = 'esbuild src/index.js --bundle --loader:.js=jsx --outdir=public --format=esm --splitting --minify'

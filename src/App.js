@@ -4,8 +4,9 @@ import { ErrorBoundary } from "react-error-boundary";
 import Html from "./Html";
 import Loader from "./Loader";
 import Layout from "./Layout";
+import Toggler from './Toggler';
 
-const Header = lazy(() => import("./Header" /* webpackPrefetch: true */));
+const Heading = lazy(() => import("./Heading" /* webpackPrefetch: true */));
 const Joke = lazy(() => import("./Joke" /* webpackPrefetch: true */));
 
 export default function App({ assets }) {
@@ -13,6 +14,7 @@ export default function App({ assets }) {
     <Html assets={assets} title="ESR">
       <Suspense fallback={<Loader />}>
         <ErrorBoundary FallbackComponent={Error}>
+          <Toggler />
           <Content />
         </ErrorBoundary>
       </Suspense>
@@ -25,7 +27,7 @@ function Content() {
     <Layout>
       <article className="header">
         <Suspense fallback={<Loader />}>
-          <Header />
+          <Heading />
         </Suspense>
         <section className="joke">
           <h3>Here is Chuck Norris Joke For you</h3>

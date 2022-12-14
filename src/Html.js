@@ -1,20 +1,18 @@
 import * as React from "react";
+import Header from "./Header";
+import Presentation from "./Presentation";
 
 export default function Html({ assets, children, title }) {
   return (
     <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href={assets["main.css"]} />
-        <title>{title}</title>
-      </head>
+      <Header assets={assets} title={title} />
       <body>
         <noscript
           dangerouslySetInnerHTML={{
             __html: `<b>Enable JavaScript to run this app.</b>`,
           }}
         />
+        <Presentation />
         {children}
         <script
           dangerouslySetInnerHTML={{
