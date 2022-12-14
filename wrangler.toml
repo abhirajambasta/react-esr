@@ -3,6 +3,10 @@ main = 'src/worker/server.js'
 compatibility_date = "2022-12-12"
 workers_dev = true
 
+[site]
+bucket = "./public"
+
 [env.production]
 
-
+[build]
+command = 'esbuild src/index.js --bundle --loader:.js=jsx --outdir=public --format=esm --splitting --minify'

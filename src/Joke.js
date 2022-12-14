@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useData } from "./data";
 
 export default () => {
-  const joke = useData();
+  const _joke = useData();
+  const [joke, updateJoke] = useState(_joke);
 
-  return <div>{joke}</div>;
+  const fetchJoke = useCallback(async () => {
+    const response = await fetch("https://api.chucknorris.io/jokes/random");
+    const result = await response.json();
+    updateJoke(result.value);
+  }, [])
+
+  useEffect(() => {
+    fetchJoke();
+  }, []);
+
+  return (
+    <>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `data = ${JSON.stringify(joke)};`,
+        }}
+      />
+      <div>{joke}</div>
+      <button onClick={fetchJoke}>Get a new one</button>
+    </>
+  );
 };

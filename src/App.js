@@ -28,7 +28,7 @@ function Content() {
           <Header />
         </Suspense>
         <section className="joke">
-          <h2>Joke</h2>
+          <h3>Here is Chuck Norris Joke For you</h3>
           <Suspense fallback={<Loader />}>
             <Joke />
           </Suspense>
@@ -41,7 +41,7 @@ function Content() {
 function Error({ error }) {
   return (
     <div>
-      <h1>Broke my leg!! Causes below ↓</h1>
+      <h1>Broke my leg!! Check for casualities ↓</h1>
       <pre style={{ whiteSpace: "pre-wrap" }}>{error.stack}</pre>
     </div>
   );

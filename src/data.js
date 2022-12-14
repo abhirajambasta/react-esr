@@ -9,5 +9,5 @@ export function DataProvider({ children, data }) {
 
 export function useData() {
   const ctx = useContext(DataContext);
-  return ctx.read();
+  return typeof window === "undefined" ? ctx.read() : window.data;
 }
